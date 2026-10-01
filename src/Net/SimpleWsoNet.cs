@@ -264,6 +264,7 @@ namespace SimpleWSO.Net
                 AircraftNetId = aircraft.NetId,
                 Protocol = PresenceProtocol
             }, Channel.Reliable);
+            Plugin.LogVerbose($"[Net] Announced pilot presence for aircraft netId={aircraft.NetId}.");
         }
 
         public static bool HasPilotPresence(Aircraft aircraft)
