@@ -98,8 +98,11 @@ namespace SimpleWSO.Core
                 vehicleName = ac.name;
 
             var player = ac.Player;
-            if (player != null && !string.IsNullOrEmpty(player.PlayerName))
-                return $"{player.PlayerName} - {vehicleName}";
+            string playerName = player != null
+                ? player.GetDisplayName(NuclearOption.Networking.PlayerNameContext.Other)
+                : null;
+            if (!string.IsNullOrEmpty(playerName))
+                return $"{playerName} - {vehicleName}";
 
             return $"AI - {vehicleName}";
         }
